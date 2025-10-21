@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoPoints - Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <script type="module" src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav>
+        <div class="logo">
+          <img src="images/favicon.png" alt="EcoPoints Logo" class="logo-img" />
+          <h1>EcoPoints</h1>
+        </div>
+
+        <div class="nav-links">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="leaderboard.html">Leaderboard</a>
+        </div>
+
+        <div class="user-menu">
+          <span class="welcome-msg"
+            >Hello, <span id="dashboardUserName"></span>!</span
+          >
+          <img src="images/avatar.png" alt="User Avatar" class="user-avatar" />
+          <button id="logoutBtn" class="btn logout-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="dashboard-wrapper">
+      <main class="main-content">
+        <div class="eco-tip">
+          <img src="images/sun-stat.png" alt="Eco Tip" />
+          <strong>Eco Tip of the Day:</strong>
+          <span id="ecoTipText"
+            >Unplug electronics when not in use to avoid 'vampire' power
+            drain.</span
+          >
+        </div>
+
+        <div class="overview-section">
+          <div class="score-display sun-score">
+            <img src="images/sun-logo.png" alt="EcoPoints" />
+            <div class="score-text">
+              <div class="points-value">
+                <span id="ecoPointsDisplay">0</span>
+              </div>
+              <div class="points-label">TOTAL ECOPOINTS</div>
+            </div>
+          </div>
+
+          <div class="level-progress-new">
+            <img src="images/sprout-level.png" alt="Sprout" />
+            <div class="level-details">
+              <span class="level-name">Level 1: Eco-Sprout</span>
+              <div class="progress-bar-container">
+                <div
+                  id="levelProgressBar"
+                  class="progress-bar"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <span id="pointsToNextLevel" class="level-next"
+                >0 / 100 points to Eco-Seedling</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <section id="log-actions" class="dashboard-section card-layout">
+          <h2>Log Your Eco-Friendly Actions</h2>
+          <div class="eco-actions">
+            <button
+              class="btn eco-action-btn"
+              data-points="10"
+              data-action="public_transport"
+            >
+              <img src="images/bus-icon.png" alt="Public Transport" />
+              <span class="label">Public Transport</span>
+              <span class="points">+10 pts</span>
+            </button>
+            <button
+              class="btn eco-action-btn"
+              data-points="5"
+              data-action="recycle"
+            >
+              <img src="images/recycle-icon.png" alt="Recycle Waste" />
+              <span class="label">Recycle Waste</span>
+              <span class="points">+5 pts</span>
+            </button>
+            <button
+              class="btn eco-action-btn"
+              data-points="20"
+              data-action="plant_tree"
+            >
+              <img src="images/plant-icon.png" alt="Plant a Tree" />
+              <span class="label">Plant a Tree</span>
+              <span class="points">+20 pts</span>
+            </button>
+            <button
+              class="btn eco-action-btn"
+              data-points="12"
+              data-action="conserve_water"
+            >
+              <img src="images/water-icon.png" alt="Conserve Water" />
+              <span class="label">Conserve Water</span>
+              <span class="points">+12 pts</span>
+            </button>
+            <button
+              class="btn eco-action-btn"
+              data-points="15"
+              data-action="bike"
+            >
+              <img src="images/bike-icon.png" alt="Bike to Work" />
+              <span class="label">Bike to Work</span>
+              <span class="points">+15 pts</span>
+            </button>
+            <button
+              class="btn eco-action-btn"
+              data-points="8"
+              data-action="save_energy"
+            >
+              <img src="images/energy-icon.png" alt="Save Energy" />
+              <span class="label">Save Energy</span>
+              <span class="points">+8 pts</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="dashboard-section tab-section">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="history">
+              Your Activity History
+            </button>
+            <button class="tab-btn" data-tab="achievements">
+              Your Achievements
+            </button>
+          </div>
+
+          <div id="history-content" class="tab-content active">
+            <div id="activityHistory" class="history-timeline">
+              <p class="empty-state">
+                No activities logged yet. Start earning points!
+              </p>
+            </div>
+          </div>
+
+          <div id="achievements-content" class="tab-content">
+            <div class="achievement-tree-container">
+              <img
+                src="images/achievement-tree.png"
+                alt="Achievement Tree"
+                class="tree-base"
+              />
+              <div
+                class="badge-node locked"
+                id="badge-first-step"
+                title="Log your first action!"
+              >
+                <img src="images/badge-first-step.png" alt="First Step" />
+                <span>First Step</span>
+              </div>
+              <div
+                class="badge-node locked"
+                id="badge-recycle"
+                title="Recycle 10 times"
+              >
+                <img src="images/badge-recycle.png" alt="Recycle Rookie" />
+                <span>Recycle Rookie</span>
+              </div>
+              <div
+                class="badge-node locked"
+                id="badge-tree-hugger"
+                title="Plant 5 trees"
+              >
+                <img src="images/badge-tree-hugger.png" alt="Tree Hugger" />
+                <span>Tree Hugger</span>
+              </div>
+              <div
+                class="badge-node locked"
+                id="badge-eco-hero"
+                title="Earn 500 total points"
+              >
+                <img src="images/badge-eco-hero.png" alt="Eco-Hero" />
+                <span>Eco-Hero</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <section class="stat-card-new" id="total-actions-card">
+          <h2>TOTAL ACTIONS</h2>
+          <div class="stat-content">
+            <img src="images/sun-stat.png" alt="Total Actions" />
+            <div id="totalActions" class="stat-value">0</div>
+          </div>
+        </section>
+
+        <section class="stat-card-new" id="today-actions-card">
+          <h2>TODAY'S ACTIONS</h2>
+          <div class="stat-content">
+            <img src="images/calendar-stat.png" alt="Today's Actions" />
+            <div id="todayActions" class="stat-value">0</div>
+          </div>
+        </section>
+
+        <section class="stat-card-new" id="statistics-card">
+          <h2>Your Statistics</h2>
+          <canvas id="weeklyActivityChart"></canvas>
+        </section>
+
+        <section class="stat-card-new" id="breakdown-card">
+          <h2>ACTION BREAKDOWN</h2>
+          <canvas id="actionBreakdownChart"></canvas>
+        </section>
+      </aside>
+    </div>
+
+    <div id="notification" class="notification"></div>
+  </body>
+</html>
