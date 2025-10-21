@@ -123,9 +123,11 @@ body {
 }
 .welcome-msg {
   color: var(--color-text-light);
-  font-size: 0.875rem;
+  font-size: 0.9rem; /* Slightly larger */
   font-weight: 500;
-  display: none;
+  display: block; /* Make it always visible */
+  white-space: nowrap; /* Prevent wrapping */
+  margin-right: calc(var(--spacing-unit) * 1); /* Add some space before avatar */
 }
 /* --- Find and Replace in style.css --- */
 button.logout-btn {
@@ -802,10 +804,6 @@ button.btn {
   .user-menu {
     width: 100%;
     justify-content: space-between;
-  }
-  .welcome-msg {
-    display: block;
-    font-size: 0.8rem;
   }
   .overview-section {
     grid-template-columns: 1fr;
