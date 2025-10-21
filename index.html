@@ -4,9 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoPoints - Login</title>
+    
+    {/* */}
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js" defer></script>
     <link rel="icon" href="images/favicon.png" type="image/png" />
+
+    {/* --- Meta Tags for WhatsApp/Social Preview --- */}
+    <meta property="og:title" content="EcoPoints - Track Your Green Journey!" />
+    <meta property="og:description" content="Log eco-actions, earn points, climb the leaderboard & unlock achievements with EcoPoints!" />
+    <meta property="og:type" content="website" />
+    {/* --- Updated with your Vercel URL --- */}
+    <meta property="og:url" content="https://ecopoints2.vercel.app/" />
+    {/* --- Updated with Absolute URL to your favicon --- */}
+    <meta property="og:image" content="https://ecopoints2.vercel.app/images/favicon.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:site_name" content="EcoPoints" />
+
+    {/* --- Optional: Add Twitter tags for wider compatibility --- */}
+    {/* <meta name="twitter:card" content="summary" /> */}
+    {/* <meta name="twitter:title" content="EcoPoints - Track Your Green Journey!" /> */}
+    {/* <meta name="twitter:description" content="Log eco-actions, earn points, climb the leaderboard & unlock achievements!" /> */}
+    {/* <meta name="twitter:image" content="https://ecopoints2.vercel.app/images/favicon.png" /> */}
+
   </head>
   <body>
     <div class="container">
@@ -26,7 +46,8 @@
       <p class="message">
         Don't have an account? <a href="signup.html">Sign Up here!</a>
       </p>
-      <div id="loginMessage" class="message error"></div>
+      {/* --- Ensure this div exists for JS error messages --- */}
+      <div id="loginMessage" class="message"></div> 
     </div>
   </body>
 </html>
