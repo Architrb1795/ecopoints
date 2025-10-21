@@ -885,7 +885,7 @@ button.btn {
     box-shadow: 0 0 0 3px rgba(101, 163, 13, 0.1); /* Use primary color */
 }
 /* General Button style needed for login/signup */
-.btn {
+button.btn {
   /* Use simpler button style for login/signup if needed */
   background: var(--color-primary);
   color: white;
@@ -899,7 +899,7 @@ button.btn {
   width: 100%;
   box-shadow: var(--shadow-sm);
 }
-.btn:hover {
+button.btn:hover {
   background: var(--color-primary-dark);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
